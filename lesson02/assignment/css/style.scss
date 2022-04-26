@@ -4,3 +4,95 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+$base: darken($gray, 50%);
+$darker: darken($base, 10%);
+$lighter: lighten($base, 40%);
+
+$gap: 3rem;
+
+@mixin link-hover($link-color, $hover-background-color) {
+  color: $link-color;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: .5rem .3rem;
+
+  &:hover {
+    color: #117cb3;
+    background-color: $hover-background-color;
+    transition: background-color ease-in .3s;
+  }
+}
+
+h2 {
+  color: $darker;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+p {
+  color: $base;
+  margin-top: .5rem;
+
+  // person's position title
+  &.title {
+    font-style: italic;
+  }
+
+  // person's Company, Experience, School, Major, Email
+  &.key {
+    color: $darker;
+    font-weight:600;
+
+    &:after {
+      content: ":";
+    }
+  }
+}
+
+a {
+  @include link-hover($darker, $lighter);
+}
+
+span {
+  padding-top: .4rem;
+}
+
+.main{
+  display: flex;
+  border: $gap solid $lighter;
+  border-radius: .3rem;
+  padding: $gap;
+  margin: $gap;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  // left side (picture, name, and position)
+  .headshot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img.rounded {
+      object-fit: cover;
+      border-radius: 50%;
+      width: 90%;
+    }
+  }
+
+  // right side
+  .description {
+    background-color: $gray;
+    padding: $gap;
+    flex-grow: 1;
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+
+      // space between key and value
+      :nth-child(2) {
+        padding-left: .4rem;
+      }
+    }
+  }
+}
