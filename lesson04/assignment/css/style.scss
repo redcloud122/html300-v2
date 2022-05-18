@@ -1,0 +1,86 @@
+// base gray color
+$gray: #f6f5f6;
+
+$nav-background: #333;
+$top-menu-font: #ffffff;
+$top-menu-hover: rgb(148, 214, 236);
+$secondary-menu-hover: rgba(148, 214, 236, 0.429);
+$menu-shadow: darken($gray, 50%);
+$slide-background: #EAF3FB;
+$slide-text-background: rgba(95, 199, 234, 0.429);
+
+@mixin menu-item($display, $font-color, $text-align, $hover-background) {
+  display: $display;
+  color: $font-color;
+  text-align: $text-align;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: .7s;
+
+  &:hover {
+    background-color: $hover-background;
+  }
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: $nav-background;
+  }
+
+  li {
+    float: left;
+
+    // top menu hover
+    a {
+      @include menu-item(inline-block, $top-menu-font, center, $top-menu-hover);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: $gray;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px $menu-shadow;
+      z-index: 1;
+
+      // second-level menu hover
+      a {
+        @include menu-item(block, $nav-background, left, $secondary-menu-hover);
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .dropdown-content {
+        display: block;
+      }
+    }
+  }
+}
+
+.slide {
+  background: $slide-background;
+  padding: 30px;
+  margin: auto;
+
+  #slide-text {
+    text-align: center;
+    width: 40%;
+    padding: 100px 0;
+    background: $slide-text-background;
+    position: relative;
+    animation-name: slide-left-to-center;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes slide-left-to-center {
+    from {left: 0px;}
+    to {left: 25%}
+  }
+}
