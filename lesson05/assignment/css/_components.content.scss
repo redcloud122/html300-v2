@@ -1,13 +1,78 @@
+$font-fam: 'Helvetica Neue', helvetica, arial, sans-serif;
+$background-header: #f1352b;
+$background-nav: #7acb00;
+$background-aside: #6e27c5;
+$background-main: #ff6600;
+$background-footer: #150f96;
+$font: white;
+
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:after,
 *:before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-.main {
-    padding: 2rem;
+body {
+  display: grid;
+  grid-template-rows: 1fr .5fr 5fr 1fr;
+  padding: 2rem;
+  font-family: $font-fam;
+  color: $font;
+  font-size: large;
 }
+
+header {
+  display: flex;
+  background: $background-header;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
+  padding: 2rem 0;
+  text-align: center;
+  font-family: $font-fam;
+}
+
+nav {
+  background: $background-nav;
+  padding: 1rem 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+
+  aside {
+    flex-grow: 2;
+    background: $background-aside;
+    text-align: center;
+  }
+
+  article {
+    flex-grow: 4;
+    background: $background-main;
+    text-align: center;
+  }
+}
+
+footer{
+  background: $background-footer;
+  display: flex;
+  justify-content: center;
+}
+
