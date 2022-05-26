@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/style.css" />
     <title>Assignment 06 - Bootstrap 4</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <style>
+      a:hover {
+        text-decoration: none;
+      }
+
+      .row {
+        padding: 0 1rem;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -19,10 +28,10 @@
     </header>
 
     <nav>
-      <a href="index.html" class="active">First - Landing</a>
+      <a href="index.html">First - Landing</a>
       <a href="second.html">Second - Image</a>
       <a href="third.html">Third - Accordion</a>
-      <a href="fourth.html">Fourth - Grid</a>
+      <a href="fourth.html" class="active">Fourth - Grid</a>
     </nav>
 
     <main>
@@ -30,12 +39,30 @@
         <p>Sidebar</p>
         <p>Main ContentLorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, nihil. Tempora deleniti repudiandae quisquam dicta nemo aspernatur nisi iusto aliquid vero odio error atque minima quo necessitatibus dolorum deserunt dolor mollitia, ut nam nihil possimus dolore quis! Voluptatum, fugiat fugit?</p>
       </aside>
+
       <article>
-        <p>Main</p>
-        <p>Main ContentLorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, nihil. Tempora deleniti repudiandae quisquam dicta nemo aspernatur nisi iusto aliquid vero odio error atque minima quo necessitatibus dolorum deserunt dolor mollitia, ut nam nihil possimus dolore quis! Voluptatum, fugiat fugit?</p>
-        <p>This is a tooltip <a href="javascript:void(0);" data-toggle="popover" data-placement="top" data-trigger="hover" title="Hover Popover" data-content="This popover appears on rollover">popover</a> on hover.</p>
+        <div class="row">
+          <div class="col-xl-6 col-lg-4 col-sm-12 bg-info p-2" >
+            <ul>
+              <li>1 A murder of crows</li>
+              <li>2 A murder of crows</li>
+              <li>3 A murder of crows</li>
+              <li>4 A murder of crows</li>
+            </ul>
+          </div>
+
+          <div class="col-xl-6 col-lg-8 col-sm-12 bg-primary p-2">
+            <ul>
+            <li>Some Text</li>
+            <li>Some Text</li>
+            <li>Some Text</li>
+            <li>Some Text </li>
+            </ul>
+          </div>
+        </div>
       </article>
     </main>
+
 
     <footer><p>Footer</p></footer>
   </body>
