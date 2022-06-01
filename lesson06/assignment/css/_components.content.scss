@@ -33,7 +33,7 @@ html {
 
 body {
   display: grid;
-  grid-template-rows: 1fr .4fr 5fr 1fr;
+  grid-template-rows: .5fr .4fr 5fr 1fr;
   padding: 0 1rem;
   font-family: $font-fam;
   font-size: large;
@@ -62,19 +62,14 @@ header {
 
 nav {
   background: $background-nav;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
   color: $font;
 
-  a {
-    padding: 1rem 2rem;
-    @include menu-item($font, $nav-a-hover);
+  .nav-item {
+    padding-right: 2rem;
+  }
 
-    &.active {
-      color: $base;
-    }
+  a {
+    @include menu-item($font, $nav-a-hover);
   }
 }
 
@@ -99,7 +94,7 @@ main {
   article {
     flex: 72%;
     background: $background-main;
-    padding: 1rem;
+    padding: .5rem 1rem 1rem 1rem;
   }
 
 }
