@@ -1,13 +1,121 @@
+$font-fam: 'Helvetica Neue', helvetica, arial, sans-serif;
+$base: #0033A1;
+
+$background-header: white;
+$background-nav: rgb(155, 153, 153);
+$nav-a-hover: rgba(132, 210, 236, 0.429);
+$background-aside: #6e27c5;
+$background-main: white;
+$background-footer: rgb(87, 85, 85);
+
+$font: white;
+
+@mixin menu-item($font-color, $hover-background) {
+  color: $font-color;
+  text-decoration: none;
+  transition: .7s;
+
+  &:hover {
+    background-color: $hover-background;
+    color: $base;
+  }
+}
+
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:after,
 *:before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-.main {
-    padding: 2rem;
+body {
+  display: grid;
+  grid-template-rows: .5fr .4fr 5fr 1fr;
+  padding: 0 1rem;
+  font-family: $font-fam;
+  font-size: large;
+}
+
+header {
+  display: flex;
+  background: $background-header;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  img {
+    max-width: 50%;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 2rem 0;
+    text-align: center;
+    font-family: $font-fam;
+    font-weight: 400;
+    color: $base;
+  }
+}
+
+nav {
+  background: $background-nav;
+  color: $font;
+
+  .nav-item {
+    padding-right: 2rem;
+  }
+
+  a {
+    @include menu-item($font, $nav-a-hover);
+  }
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  p {
+    line-height: 2rem;
+    margin-top: 0;
+  }
+
+  aside {
+    flex: 28%;
+    background: $background-aside;
+    text-align: left;
+    color: $font;
+    padding: 1rem;
+  }
+
+  article {
+    flex: 72%;
+    background: $background-main;
+    padding: .5rem 1rem 1rem 1rem;
+  }
+
+}
+
+footer{
+  background: $background-footer;
+  display: flex;
+  justify-content: center;
+  color: $font;
+}
+
+@media (max-width: 920px) {
+  main aside, main article {
+    flex: 100%;
+  }
+
+  main aside {
+    order: 2;
+  }
+
+  main article {
+    order: 1;
+  }
 }
