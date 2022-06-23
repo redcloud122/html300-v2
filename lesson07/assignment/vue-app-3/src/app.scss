@@ -1,0 +1,132 @@
+$font-fam: 'Helvetica Neue', helvetica, arial, sans-serif;
+$base: #0033A1;
+
+$background-header: white;
+$background-nav: #f8f9fa;
+$nav-a-hover: rgba(132, 210, 236, 0.429);
+$background-aside: #6e27c5;
+$background-main: white;
+$background-footer: rgb(155, 153, 153);
+
+$font: white;
+$nav-font: rgba(0,0,0,.5);
+
+@mixin menu-item($font-color, $hover-background) {
+  color: $font-color;
+  text-decoration: none;
+  transition: .7s;
+
+  &:hover {
+    background-color: $hover-background;
+    color: $base;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: .5fr .4fr 4.3fr 1fr;
+  padding: 0 1rem;
+  font-family: $font-fam;
+  font-size: large;
+}
+
+header {
+  display: flex;
+  background: $background-header;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  img {
+    max-width: 50%;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 2rem 0;
+    text-align: center;
+    font-family: $font-fam;
+    font-weight: 400;
+    color: $base;
+  }
+}
+
+nav {
+  background: $background-nav;
+  padding: 18px 18px 18px 0;
+  // border: red solid 1px;
+
+  .nav-item {
+    padding-right: 2rem;
+  }
+
+  a {
+    padding: 20px;
+    @include menu-item($nav-font, $nav-a-hover);
+  }
+
+  a.router-link-exact-active {
+    color: $base;
+  }
+}
+
+.home, .image, .accordion, .grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100%;
+  flex-direction: row;
+
+  p {
+    line-height: 2rem;
+    margin-top: 0;
+  }
+
+  aside {
+    flex: 28%;
+    background: $background-aside;
+    text-align: left;
+    color: $font;
+    padding: 1rem;
+  }
+
+  article {
+    flex: 72%;
+    background: $background-main;
+    padding: .5rem 1rem 1rem 1rem;
+  }
+
+}
+
+footer{
+  background: $background-footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $font;
+  height: 120px;
+}
+
+@media (max-width: 920px) {
+  aside, article {
+    flex: 100%;
+  }
+
+  aside {
+    order: 2;
+  }
+
+  article {
+    order: 1;
+  }
+}
