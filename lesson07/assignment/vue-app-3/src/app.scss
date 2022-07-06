@@ -22,111 +22,132 @@ $nav-font: rgba(0,0,0,.5);
   }
 }
 
-html {
+* {
   box-sizing: border-box;
 }
 
-*,
-*:after,
-*:before {
-  box-sizing: inherit;
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
 #app {
+  min-height: 100%;
   display: grid;
-  grid-template-rows: .5fr .4fr 4.3fr 1fr;
-  padding: 0 1rem;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
   font-family: $font-fam;
   font-size: large;
-}
 
-header {
-  display: flex;
-  background: $background-header;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-
-  img {
-    max-width: 50%;
-  }
-
-  h1 {
-    margin: 0;
-    padding: 2rem 0;
-    text-align: center;
-    font-family: $font-fam;
-    font-weight: 400;
-    color: $base;
-  }
-}
-
-nav {
-  background: $background-nav;
-  padding: 18px 18px 18px 0;
-  // border: red solid 1px;
-
-  .nav-item {
-    padding-right: 2rem;
-  }
-
-  a {
-    padding: 20px;
-    @include menu-item($nav-font, $nav-a-hover);
-  }
-
-  a.router-link-exact-active {
-    color: $base;
-  }
-}
-
-.home, .image, .accordion, .grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  height: 100%;
-  flex-direction: row;
-
-  p {
-    line-height: 2rem;
-    margin-top: 0;
-  }
-
-  aside {
-    flex: 28%;
-    background: $background-aside;
-    text-align: left;
-    color: $font;
+  header {
+    display: flex;
+    background: $background-header;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
+
+    img {
+      max-width: 50%;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 2rem 0;
+      text-align: center;
+      font-family: $font-fam;
+      font-weight: 400;
+      color: $base;
+    }
   }
 
-  article {
-    flex: 72%;
-    background: $background-main;
-    padding: .5rem 1rem 1rem 1rem;
+  nav {
+    background: $background-nav;
+    padding: 18px 18px 18px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .nav-item {
+      padding-right: 2rem;
+    }
+
+    a {
+      padding: 20px;
+      @include menu-item($nav-font, $nav-a-hover);
+    }
+
+    a.router-link-exact-active {
+      color: $base;
+    }
+
+    #visit-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: small;
+
+      button {
+        width: 150px;
+        text-align: right;
+        text-decoration: underline;
+        border: none;
+        border-radius: 10%;
+        background-color: lightcyan;
+        color: #0033A1;
+      }
+
+      span {
+        width: 40px;
+        text-align: center;
+        padding-top: 4px;
+      }
+
+      p {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        color: #0033A1;
+      }
+    }
   }
 
-}
+  .home, .image, .accordion, .grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100%;
+    flex-direction: row;
 
-footer{
-  background: $background-footer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $font;
-  height: 120px;
-}
+    p {
+      line-height: 2rem;
+      margin-top: 0;
+    }
 
-@media (max-width: 920px) {
-  aside, article {
-    flex: 100%;
+    aside {
+      flex: 28%;
+      background: $background-aside;
+      text-align: left;
+      color: $font;
+      padding: 1rem;
+    }
+
+    article {
+      flex: 72%;
+      background: $background-main;
+      padding: .5rem 1rem 1rem 1rem;
+    }
   }
 
-  aside {
-    order: 2;
+  footer{
+    background: $background-footer;
+    text-align: center;
+    vertical-align: middle;
+    color: $font;
+    height: 100px;
+    padding-top: 34px;
   }
 
-  article {
-    order: 1;
+  @media (max-width: 920px) {
+    .home, .image, .accordion, .grid {
+      display: block;
+    }
   }
 }

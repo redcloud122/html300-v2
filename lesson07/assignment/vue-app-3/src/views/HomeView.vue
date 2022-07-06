@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <aside>
-      <h5>Home Aside</h5>
+      <h5>{{ message }}</h5>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, nihil. Tempora deleniti repudiandae quisquam dicta nemo aspernatur nisi iusto aliquid vero odio error atque minima quo necessitatibus dolorum deserunt dolor mollitia, ut nam nihil possimus dolore quis! Voluptatum, fugiat fugit?</p>
     </aside>
 
     <article>
-      <h5>Main Article</h5>
+      <h5>{{ message }}</h5>
 
       <p>Main Content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, nihil. Tempora deleniti repudiandae quisquam dicta nemo aspernatur nisi iusto aliquid vero odio error atque minima quo necessitatibus dolorum deserunt dolor mollitia, ut nam nihil possimus dolore quis! Voluptatum, fugiat fugit?</p>
 
@@ -21,9 +21,7 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  // name: 'HomeView',
-  // components: {
-  //   HelloWorld
-  // }
+  props: ['message']
 }
 </script>
+

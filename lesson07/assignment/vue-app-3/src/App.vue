@@ -3,14 +3,21 @@
     <ComponentHeader />
 
     <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/image">Image</router-link>
-      <router-link to="/accordion">Accordion</router-link>
-      <router-link to="/grid">Grid</router-link>
+      <div>
+        <router-link @click.native="incrementVisitStats" to="/">Home</router-link>
+        <router-link @click.native="incrementVisitStats" to="/image">Image</router-link>
+        <router-link @click.native="incrementVisitStats" to="/accordion">Accordion</router-link>
+        <router-link @click.native="incrementVisitStats" to="/grid">Grid</router-link>
+      </div>
+
+      <div id="visit-stats">
+        <button id="hide-show" @click="toggleShow">{{ button.text }}# of page visits:</button>
+        <span><p v-if="show">{{ counter }}</p></span>
+      </div>
     </nav>
 
     <main>
-      <router-view />
+      <router-view :message="pageName"></router-view>
     </main>
 
     <ComponentFooter />
@@ -22,11 +29,30 @@ import ComponentHeader from "./components/ComponentHeader.vue";
 import ComponentFooter from "./components/ComponentFooter.vue";
 
 export default {
-  name: "App",
+  name: "app",
   components: {
     ComponentHeader,
     ComponentFooter,
   },
+  data() {
+    return {
+      pageName: this.$route.name.charAt(0).toUpperCase() + this.$route.name.slice(1),
+      counter: 1,
+      show: false,
+      button: {
+        text: 'Show '
+      },
+    }
+  },
+  methods: {
+    incrementVisitStats() {
+      this.counter++;
+    },
+    toggleShow() {
+      this.show = !this.show;
+      this.button.text = this.show ? 'Hide ' : 'Show ';
+    }
+  }
 };
 </script>
 
@@ -35,20 +61,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
-  // color: #2c3e50;
 }
-
-// nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>
